@@ -1,0 +1,44 @@
+.addNewForm {
+    display: flex;
+    margin-top: -28px;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid;
+    background-color: #FFFFFF;
+    border-color: rgba(223,225,229,0);
+    border-radius: calc(3px * var(--spacer));
+    box-shadow: 0 1px 6px rgba(32,33,36,.28);
+    width: calc(100% - (4px * var(--global-padding)));
+}
+
+.plusIcon {
+    color: #BABABA;
+    font-size: calc(2px * var(--spacer));
+    margin: calc(1px * var(--global-padding));
+}
+
+.addNewInput {
+    width: 100%;
+    border: none;
+    opacity: 0.7;
+    text-transform: capitalize;
+    background-color: transparent;
+    height: calc(5px * var(--spacer));
+    font-size: calc(1.75px * var(--spacer));
+}
+
+.addNewInput:focus-visible {
+    outline: none;
+}
+
+.addNewInput::placeholder {
+    opacity: 0.5;
+}
+
+.addBtn {
+    margin: 0px;
+    height: 100%;
+    border-radius: 25px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 16px;
+}

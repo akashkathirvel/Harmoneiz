@@ -1,0 +1,6 @@
+.menuArea {
+    background-color: #F7F7F7;
+    width: calc(35px * var(--spacer));
+    border-radius: calc(1px * var(--spacer));
+    height: calc(100vh - (2px * var(--global-padding)));
+}

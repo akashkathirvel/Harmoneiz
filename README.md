@@ -1,4 +1,4 @@
-# todo
+# To-Do
 Local To-Do Web Application
 
 # Getting Started with Create React App
