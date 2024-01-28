@@ -1,13 +1,14 @@
 import { useState } from "react";
 import s from "./index.module.css";
 import { FaPlus } from "react-icons/fa";
+import { generateRandomUid } from "../../utils";
 
 export function NewTask() {
     const [todoValue, setTodoValue] = useState("");
 
     const onSubmit = (event) => {
         event.preventDefault();
-        console.log(todoValue);
+        console.log(todoValue, generateRandomUid());
         setTodoValue("");
     }
 

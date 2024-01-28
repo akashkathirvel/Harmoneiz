@@ -1,6 +1,60 @@
 .menuArea {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     background-color: #F7F7F7;
-    width: calc(35px * var(--spacer));
     border-radius: calc(1px * var(--spacer));
-    height: calc(100vh - (2px * var(--global-padding)));
+    transition: width 1s, background-color 2s;
+}
+
+.open {
+    width: calc(35px * var(--spacer));
+}
+
+.close {
+    width: calc(7px * var(--spacer));
+    background-color: transparent;
+}
+
+.iconsArea {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.akHeaderImage {
+    cursor: pointer;
+    width: calc(var(--spacer) * 4px);
+    height: calc(var(--spacer) * 4px);
+    padding: calc(var(--spacer) * 1px);
+}
+
+.close .akHeaderImage {
+    transition: width 1s, height 1s;
+    width: calc(var(--spacer) * 6px);
+    height: calc(var(--spacer) * 6px);
+}
+
+.open .akHeaderImage {
+    transition: width 1s, height 1s;
+}
+
+.icon {
+    cursor: pointer;
+    color: #ADADAD;
+    font-size: calc(2.5px * var(--spacer));
+    padding: calc(1px * var(--global-padding));
+}
+
+.flexLists {
+    width: calc(100% - (var(--spacer) * 4px));
+    margin: calc(var(--spacer) * 2px);
+    border-top: 1px solid #EDEDED;
+}
+
+.close .flexLists {
+    display: none;
 }

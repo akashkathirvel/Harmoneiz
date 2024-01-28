@@ -1,10 +1,12 @@
 .mainBoard {
     height: 100%;
     display: flex;
+    position: relative;
     align-items: center;
     flex-direction: column;
     margin-left: calc(1px * var(--global-padding));
-    width: calc(100vw - (35px * var(--spacer)) - (2px * var(--global-padding)));
+    width: calc(100% - (1px * var(--global-padding)));
+    /* vw - (35px * var(--spacer)) */
 }
 
 .banner {
@@ -13,5 +15,21 @@
     height: calc(20px * var(--spacer));
     border-radius: calc(1px * var(--spacer));
     background-image: url("../../assets/shapes-light.png");
-    width: calc(100vw - (35px * var(--spacer)) - (2px * var(--global-padding)));
+    width: calc(100% - (1px * var(--global-padding)));
+}
+
+.themeIcons {
+    cursor: pointer;
+    position: absolute;
+    right: calc(1px *var(--global-padding));
+    padding: calc(1px *var(--global-padding));
+}
+
+.themeIcon {
+    font-size: 24px;
+    color: var(--primary);
+}
+
+.themeIcons:active {
+    opacity: 0.6;
 }

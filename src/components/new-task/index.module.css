@@ -8,7 +8,7 @@
     border-color: rgba(223,225,229,0);
     border-radius: calc(3px * var(--spacer));
     box-shadow: 0 1px 6px rgba(32,33,36,.28);
-    width: calc(100% - (4px * var(--global-padding)));
+    width: calc(100% - (8px * var(--global-padding)));
 }
 
 .plusIcon {
