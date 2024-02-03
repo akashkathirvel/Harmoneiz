@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/todo/static/css/main.c2237ad9.css",
-    "main.js": "/todo/static/js/main.8936fb8d.js",
+    "main.css": "/todo/static/css/main.e40f45fc.css",
+    "main.js": "/todo/static/js/main.539246cd.js",
     "static/js/787.8eb42f38.chunk.js": "/todo/static/js/787.8eb42f38.chunk.js",
     "static/media/akLogo.png": "/todo/static/media/akLogo.b1329ec087790f06f97a.png",
+    "static/media/shapes-dark.png": "/todo/static/media/shapes-dark.deab39ef0a15804dcbd6.png",
     "static/media/shapes-light.png": "/todo/static/media/shapes-light.2ce136cf8da094de293d.png",
     "index.html": "/todo/index.html",
-    "main.c2237ad9.css.map": "/todo/static/css/main.c2237ad9.css.map",
-    "main.8936fb8d.js.map": "/todo/static/js/main.8936fb8d.js.map",
+    "main.e40f45fc.css.map": "/todo/static/css/main.e40f45fc.css.map",
+    "main.539246cd.js.map": "/todo/static/js/main.539246cd.js.map",
     "787.8eb42f38.chunk.js.map": "/todo/static/js/787.8eb42f38.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c2237ad9.css",
-    "static/js/main.8936fb8d.js"
+    "static/css/main.e40f45fc.css",
+    "static/js/main.539246cd.js"
   ]
 }
