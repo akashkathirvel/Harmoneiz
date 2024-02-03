@@ -1,0 +1,9 @@
+export const listTypeConstants = {
+    ADD_REQUEST : "TYPE_ADD_REQUEST",
+    ADD_SUCCESS : "TYPE_ADD_SUCCESS",
+    ADD_ERROR : "TYPE_ADD_ERROR",
+
+    GET_REQUEST : "TYPE_GET_REQUEST",
+    GET_SUCCESS : "TYPE_GET_SUCCESS",
+    GET_ERROR : "TYPE_GET_ERROR",    
+};

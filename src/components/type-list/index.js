@@ -1,7 +1,9 @@
+import store from "../../reducers";
 import { useState } from "react";
 import s from "./index.module.css";
 import { FaPlus } from "react-icons/fa";
 import { generateRandomUid } from "../../utils";
+import { listTypeActions } from "../../actions";
 
 const demo = [
     { title: "Personal", id: "kjasdf" },
@@ -18,8 +20,14 @@ export function TypeList(props) {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(listTitle?.trim(), generateRandomUid());
-        setListTitle("");
+        if(listTitle?.trim()){
+            let payload = {
+                id: generateRandomUid(),
+                title: listTitle?.trim()
+            }
+            store.dispatch(listTypeActions.add(payload));
+            setListTitle("");
+        }
     }
 
     const onTextChange = (event) => {

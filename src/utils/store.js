@@ -1,6 +1,6 @@
 import { CONSTANTS } from "../constants";
 
-export const store = {
+export const datastore = {
     getValue,
     setValue,
     clearAll,
