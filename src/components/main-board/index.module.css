@@ -6,7 +6,6 @@
     flex-direction: column;
     margin-left: calc(1px * var(--global-padding));
     width: calc(100% - (1px * var(--global-padding)));
-    /* vw - (35px * var(--spacer)) */
 }
 
 .banner {
@@ -14,8 +13,12 @@
     background-size: contain;
     height: calc(20px * var(--spacer));
     border-radius: calc(1px * var(--spacer));
-    background-image: url("../../assets/shapes-light.png");
     width: calc(100% - (1px * var(--global-padding)));
+    background-image: url("../../assets/shapes-light.png");
+}
+
+:global(.dark-theme) .banner {
+    background-image: url("../../assets/shapes-dark.png");
 }
 
 .themeIcons {
@@ -32,4 +35,35 @@
 
 .themeIcons:active {
     opacity: 0.6;
+}
+
+.activeType {
+    margin: 0px;
+    position: absolute;
+    text-transform: capitalize;
+    color: var(--font-color-h1-light);
+    left: calc(1px *var(--global-padding));
+    padding: calc(1px *var(--global-padding));
+}
+
+:global(.dark-theme) .activeType {
+    color: var(--font-color-h1-dark);
+}
+
+@media (max-width: 768px) {
+    .mainBoard {
+        margin: 0px;
+        width: 100vw;
+    }
+    .activeType {
+        padding-left: 0px;
+        top: calc(7px *var(--spacer));
+    }
+    .banner {
+        width: 100%;
+    }
+    .themeIcons {
+        top: calc(1px *var(--spacer));
+        right: calc(1px *var(--spacer));
+    }
 }

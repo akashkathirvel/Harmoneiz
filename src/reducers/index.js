@@ -5,10 +5,15 @@ import { persistReducer } from "redux-persist";
 import {thunk} from 'redux-thunk';
 
 import { listtype } from "./listtype.reducer";
+import { root } from "./root.reducer";
 
 const persistConfig = {
   key: "root",
   storage: storage,
+  whitelist: [
+    "listtype", 
+    "root"
+  ]
 };
 
 // Middlewares
@@ -20,7 +25,8 @@ const middleware = () => {
 const pReducer = persistReducer(
   persistConfig,
   combineReducers({
-    listtype
+    listtype,
+    root
   })
 );
 

@@ -1,6 +1,8 @@
 // import { httpError } from "./httperror";
 // import Store from "../reducers";
 
+import { localstore } from "./localstore";
+
 export const httpClient = {
   deleteReq,
   get,
@@ -96,23 +98,28 @@ function callApi(
   endpoint,
   payload = {},
   credentials = true,
-  image = false
+  image = false,
+  type = ""
 ) {
+  let value = null;
   let requestOptions = {};
-  // let url = Store.getState().endpoint.service_url;
 
   switch (method) {
     case "GET":
       requestOptions = get(credentials);
+      value = localstore.getValue(endpoint);
       break;
     case "PUT":
       requestOptions = put(payload, credentials);
+      value = localstore.updateValue(endpoint, payload, type);
       break;
     case "POST":
       if (image) {
         requestOptions = postImage(payload);
       } else {
         requestOptions = post(payload, credentials);
+        localstore.addValue(endpoint, payload);
+        value = payload;
       }
       break;
     case "DELETE":
@@ -121,6 +128,8 @@ function callApi(
     default:
       console.log("Nothing here");
   }
+
+  return Promise.resolve(value);
   // return fetch(`${url}${endpoint}`, requestOptions).then(handleResponse);
 }
 

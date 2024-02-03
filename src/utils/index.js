@@ -1,3 +1,3 @@
 export * from "./util";
-export * from "./store";
+export * from "./localstore";
 export * from "./httpclient";

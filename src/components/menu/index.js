@@ -1,12 +1,11 @@
-import { FaBars } from "react-icons/fa";
 import Logo from "../../assets/akLogo.png";
+import { FaBars } from "react-icons/fa";
+import { TypeList } from "../type-list";
 import s from "./index.module.css";
 import { useState } from "react";
-import { TypeList } from "../type-list";
 
 export function Menu() {
     const [menu, setMenu] = useState(true);
-    const [active, setActive] = useState("");
 
     const toggleMenu = () => {
         setMenu((prev) => !prev);
@@ -27,10 +26,7 @@ export function Menu() {
                 />
             </div>
             <div className={s.flexLists}>
-                <TypeList 
-                    active={active}
-                    setActive={setActive}
-                />
+                <TypeList />
             </div>
         </div>
     )

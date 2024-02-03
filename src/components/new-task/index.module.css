@@ -42,3 +42,28 @@
     border-top-left-radius: 0px;
     border-bottom-left-radius: 16px;
 }
+
+.mobileAddBtn {
+    display: none;
+    cursor: pointer;
+    color: var(--primary);
+    padding: calc(1.5px * var(--spacer));
+    font-size: calc(2.5px * var(--spacer));
+}
+
+.mobileAddBtn:active {
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .addNewForm {
+        border-radius: calc(1px * var(--spacer));
+        width: calc(100% - (1px * var(--global-padding)));
+    }
+    .addBtn {
+        display: none;
+    }
+    .mobileAddBtn {
+        display: block;
+    }
+}

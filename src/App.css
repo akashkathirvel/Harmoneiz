@@ -28,10 +28,16 @@
 
 .App.light-theme{
   background-color: var(--bg-color-light);
+  transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  -webkit-transition: background-color 1000ms linear;
 }
 
 .App.dark-theme{
   background-color: var(--bg-color-dark);
+  transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  -webkit-transition: background-color 1000ms linear;
 }
 
 .App-logo {
@@ -139,5 +145,13 @@ button:disabled {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
   }
 }

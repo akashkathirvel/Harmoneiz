@@ -29,9 +29,9 @@ export function listtype(state = initialState, action) {
         status: "ADD_REQUEST"
       }; 
     case listTypeConstants.ADD_SUCCESS:
-      console.log(action.res)
       return {
         ...state,
+        list: [ ...(state.list), action.res],
         status: "ADD_SUCCESS"
       }; 
     case listTypeConstants.ADD_ERROR:

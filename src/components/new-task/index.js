@@ -1,7 +1,7 @@
 import { useState } from "react";
 import s from "./index.module.css";
-import { FaPlus } from "react-icons/fa";
 import { generateRandomUid } from "../../utils";
+import { FaArrowRight, FaPlus } from "react-icons/fa";
 
 export function NewTask() {
     const [todoValue, setTodoValue] = useState("");
@@ -30,12 +30,10 @@ export function NewTask() {
                 className={s.addNewInput}
                 placeholder={"Add New Task"}
             />
-            <button 
-                type="submit"
-                className={s.addBtn}
-            >
+            <button type="submit" className={s.addBtn}>
                 Add
             </button>
+            <FaArrowRight className={s.mobileAddBtn}/>
         </form>
     )
 }

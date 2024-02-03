@@ -1,17 +1,19 @@
+import { useDispatch, useSelector } from "react-redux";
 import { isDevelopmentSite } from './utils';
-import { useEffect, useState } from 'react';
 import mixpanel from 'mixpanel-browser';
+import { rootActions } from './actions';
 import { CONSTANTS } from './constants';
-import { Provider } from "react-redux";
 import { Dashboard } from './pages';
+import { useEffect } from 'react';
 import './App.css';
 
-function App({ store }) {
-  const [theme, setTheme] = useState("light");
+function App() {
+  const dispatch = useDispatch();
+  const { root } = useSelector((state) => state.root);
 
   useEffect(() => {
     loadMixPanel();
-    loadTheme();
+    loadRootData();
   }, []);
 
   const loadMixPanel = () => {
@@ -26,16 +28,14 @@ function App({ store }) {
     }
   }
 
-  const loadTheme = () => {
-    // setTheme(store.getValue("theme") || "light");
+  const loadRootData = () => {
+    dispatch(rootActions.get());
   }
 
   return (
-    <Provider store={store}>
-        <div className={`App ${theme || "light"}-theme`}>
-          <Dashboard />
-        </div>
-    </Provider>
+    <div className={`App ${(root.theme) ? "dark" : "light"}-theme`}>
+      <Dashboard />
+    </div>
   );
 }
 
