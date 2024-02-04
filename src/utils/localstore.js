@@ -5,6 +5,7 @@ export const localstore = {
     getValue,
     setValue,
     clearAll,
+    deleteValue,
     updateValue,
     removeValue
 }
@@ -19,8 +20,13 @@ function setValue(key = "", value = ""){
         localStorage.setItem(CONSTANTS.STORE_KEY + key, JSON.stringify(value));
 }
 
-function removeValue(key = ""){
-    localStorage.removeItem(CONSTANTS.STORE_KEY + key);
+function deleteValue(key = "", payload = null){
+    console.log("delete value : ", key, payload);
+    if(payload){
+        removeValue(key, payload);
+    } else {
+        localStorage.removeItem(CONSTANTS.STORE_KEY + key);
+    }
 }
 
 function clearAll(){
@@ -43,7 +49,11 @@ function updateValue(key = "", value = {}, type = "list"){
         data = Object.assign(getValue(key) || {}, value);
         setValue(key, data); 
     }
-
     return data;
+}
 
+function removeValue(key = '', id = '') {
+    let data = getValue(key) || [];
+    data = data.filter((o) => o.id !== id);
+    setValue(key, data); 
 }

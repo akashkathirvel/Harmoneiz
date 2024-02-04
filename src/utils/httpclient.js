@@ -124,6 +124,8 @@ function callApi(
       break;
     case "DELETE":
       requestOptions = deleteReq(credentials);
+      localstore.deleteValue(endpoint, payload, type);
+      value = payload;
       break;
     default:
       console.log("Nothing here");

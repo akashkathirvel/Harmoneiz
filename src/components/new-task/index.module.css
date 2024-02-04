@@ -1,13 +1,15 @@
 .addNewForm {
     display: flex;
     margin-top: -28px;
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
     flex-direction: row;
     align-items: center;
-    border: 1px solid;
     background-color: #FFFFFF;
+    box-shadow: var(--shadow-large);
     border-color: rgba(223,225,229,0);
     border-radius: calc(3px * var(--spacer));
-    box-shadow: 0 1px 6px rgba(32,33,36,.28);
     width: calc(100% - (8px * var(--global-padding)));
 }
 
@@ -37,10 +39,10 @@
 
 .addBtn {
     margin: 0px;
-    height: 100%;
     border-radius: 25px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 16px;
+    height: calc(6px * var(--spacer));
 }
 
 .mobileAddBtn {

@@ -3,7 +3,8 @@ import { httpClient } from "../utils";
 export const listTypeService = {
     add,
     get,
-    update
+    update,
+    remove
 };
 
 function add(type = {}){
@@ -16,4 +17,8 @@ function update(type = {}){
 
 function get(){
     return httpClient.callApi("GET", `types`);
+}
+
+function remove(id = ''){
+    return httpClient.callApi("DELETE", `types`, id);
 }

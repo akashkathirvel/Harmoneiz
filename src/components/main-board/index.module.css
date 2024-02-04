@@ -1,6 +1,7 @@
 .mainBoard {
     height: 100%;
     display: flex;
+    overflow: hidden;
     position: relative;
     align-items: center;
     flex-direction: column;
@@ -8,12 +9,15 @@
     width: calc(100% - (1px * var(--global-padding)));
 }
 
+.topSection {
+    width: 100%;
+}
+
 .banner {
     width: 100%;
     background-size: contain;
     height: calc(20px * var(--spacer));
     border-radius: calc(1px * var(--spacer));
-    width: calc(100% - (1px * var(--global-padding)));
     background-image: url("../../assets/shapes-light.png");
 }
 
@@ -39,6 +43,7 @@
 
 .activeType {
     margin: 0px;
+    max-width: 75%;
     position: absolute;
     text-transform: capitalize;
     color: var(--font-color-h1-light);
@@ -56,11 +61,16 @@
         width: 100vw;
     }
     .activeType {
+        max-width: 90%;
         padding-left: 0px;
+        overflow: hidden;
+        white-space: pre;
+        text-overflow: ellipsis;
         top: calc(7px *var(--spacer));
     }
     .banner {
         width: 100%;
+        border-radius: 0px;
     }
     .themeIcons {
         top: calc(1px *var(--spacer));

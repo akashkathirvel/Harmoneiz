@@ -20,9 +20,9 @@
     flex-direction: row;
     align-items: center;
     background-color: #FFFFFF;
+    box-shadow: var(--shadow-medium);
     border-color: rgba(223,225,229,0);
     border-radius: calc(.5px * var(--spacer));
-    box-shadow: 0 0px 4px rgba(32,33,36, .10);
     margin: calc(1px * var(--global-padding)) 0px;
 }
 
@@ -69,6 +69,7 @@
     margin: 2px 0px;
     border-radius: 4px;
     letter-spacing: 0.5px;
+    word-break: break-all;
     text-transform: capitalize;
     justify-content: space-between;
     padding: calc(var(--spacer) * 1px);
@@ -111,4 +112,8 @@
 
 .listIcons:active {
     opacity: 0.6;
+}
+
+.listTypeList::-webkit-scrollbar {
+    display: none;
 }

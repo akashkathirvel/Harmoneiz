@@ -8,8 +8,8 @@ import { listTypeActions, rootActions } from "../../actions";
 export function TypeList() {
     const dispatch = useDispatch();
     const [listTitle, setListTitle] = useState('');
-    const { list } = useSelector((state) => state.listtype);
     const { root } = useSelector((state) => state.root);
+    const { list } = useSelector((state) => state.listtype);
 
     useEffect(() => {
         dispatch(listTypeActions.get());
@@ -39,8 +39,9 @@ export function TypeList() {
         dispatch(rootActions.update( payload ));
     }
 
-    const onDeleteListType = (id = "") => {
-        
+    const onDeleteListType = (e, id = "") => {
+        e.preventDefault();
+        dispatch(listTypeActions.remove(id));
     }
 
     return (
@@ -54,6 +55,7 @@ export function TypeList() {
             >
                 <input 
                     type="text"
+                    maxLength={25}
                     required={true}
                     value={listTitle}
                     onChange={onTextChange}
@@ -81,7 +83,7 @@ export function TypeList() {
                                 {item.title}
                                 <FaTrash 
                                     className={s.listIcons}
-                                    onClick={() => onDeleteListType(item.id)}
+                                    onClick={(e) => onDeleteListType(e, item.id)}
                                 />
                             </div>
                         )

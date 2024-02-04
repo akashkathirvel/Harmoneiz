@@ -39,6 +39,22 @@ export function listtype(state = initialState, action) {
         ...state,
         status: "ADD_ERROR"
       };        
+    case listTypeConstants.DELETE_REQUEST:
+      return {
+        ...state,
+        status: "DELETE_REQUEST"
+      }; 
+    case listTypeConstants.DELETE_SUCCESS:
+      return {
+        ...state,
+        list: state.list.filter((i) => i.id !== action.res),
+        status: "DELETE_SUCCESS"
+      }; 
+    case listTypeConstants.DELETE_ERROR:
+      return {
+        ...state,
+        status: "DELETE_ERROR"
+      };        
     default:
       return state;
   }

@@ -17,6 +17,9 @@
   --font-color-h4-light: #1F1F1F;
   --font-color-text-dark: #C7C7C7;
   --font-color-text-light: #474747;
+
+  --shadow-medium: 0px 1px 1px #091E4240, 0px 0px 1px #091E424F;
+  --shadow-large: 0 1px 6px rgba(32,33,36,.28);
 }
 
 .App {

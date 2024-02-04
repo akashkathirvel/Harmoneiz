@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { FaLightbulb, FaMoon } from "react-icons/fa";
 import { rootActions } from "../../actions";
+import { TaskList } from "../task-list";
 import { NewTask } from "../new-task";
 import s from "./index.module.css";
 
@@ -14,21 +15,24 @@ export function MainBoard(){
 
     return (
         <div className={s.mainBoard}>
-            <div 
-                className={s.themeIcons} 
-                onClick={onThemeChange}
-            >
-                {
-                    !(root?.theme) ?
-                    <FaMoon className={s.themeIcon}/> :
-                    <FaLightbulb className={s.themeIcon}/>
-                }
+            <div className={s.topSection}>
+                <div 
+                    className={s.themeIcons} 
+                    onClick={onThemeChange}
+                >
+                    {
+                        !(root?.theme) ?
+                        <FaMoon className={s.themeIcon}/> :
+                        <FaLightbulb className={s.themeIcon}/>
+                    }
+                </div>
+                <h1 className={s.activeType}>
+                    {root?.listActiveTypeTitle || ''}
+                </h1>
+                <div className={s.banner}></div>
+                <NewTask />
             </div>
-            <h1 className={s.activeType}>
-                {root?.listActiveTypeTitle || ''}
-            </h1>
-            <div className={s.banner}></div>
-            <NewTask />
+            <TaskList />
         </div>
     );
 }
