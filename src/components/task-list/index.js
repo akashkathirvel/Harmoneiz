@@ -1,10 +1,28 @@
 import { PRODUCT_CONSTANTS } from "../../constants/index";
+import { useDispatch, useSelector } from "react-redux";
+import { taskActions } from "../../actions";
 import s from "./index.module.css";
+import { useEffect } from "react";
 
 let d = [];
 export function TaskList() {
+    const { root } = useSelector((s) => s.root);
+    const { list } = useSelector((s) => s.task);
+    const dispatch = useDispatch();
+
+
+    useEffect(() => {
+        if(root.listActiveType){
+            dispatch(taskActions.getAll(root.listActiveType));
+        }
+    }, [root.listActiveType, dispatch]);
+
 
     const container = (status = "") => {
+        const data = list.filter(
+            i => i.status === status
+        ) || [];
+
         return (
             <div className={s.taskListContainer}>
                 <h6 className={s.taskStatusTitle}>
@@ -12,9 +30,13 @@ export function TaskList() {
                 </h6>
                 <div className={s.taskList}>
                     {
-                        d.map((i) => (
-                            <div className={s.taskDataContainer}>
-                                New {status}
+                        data.map((i) => (
+                            <div 
+                                id={i.id}
+                                key={i.id}
+                                className={s.taskDataContainer}
+                            >
+                                {i?.title || ''}
                             </div>
                         ))
                     }

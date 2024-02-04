@@ -21,7 +21,6 @@ function setValue(key = "", value = ""){
 }
 
 function deleteValue(key = "", payload = null){
-    console.log("delete value : ", key, payload);
     if(payload){
         removeValue(key, payload);
     } else {

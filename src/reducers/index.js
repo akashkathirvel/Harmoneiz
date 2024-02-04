@@ -6,6 +6,7 @@ import {thunk} from 'redux-thunk';
 
 import { listtype } from "./listtype.reducer";
 import { root } from "./root.reducer";
+import { task } from "./task.reducer";
 
 const persistConfig = {
   key: "root",
@@ -26,6 +27,7 @@ const pReducer = persistReducer(
   persistConfig,
   combineReducers({
     listtype,
+    task,
     root
   })
 );
