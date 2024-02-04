@@ -102,28 +102,28 @@ function callApi(
   type = ""
 ) {
   let value = null;
-  let requestOptions = {};
+  // let requestOptions = {};
 
   switch (method) {
     case "GET":
-      requestOptions = get(credentials);
+      // requestOptions = get(credentials);
       value = localstore.getValue(endpoint);
       break;
     case "PUT":
-      requestOptions = put(payload, credentials);
+      // requestOptions = put(payload, credentials);
       value = localstore.updateValue(endpoint, payload, type);
       break;
     case "POST":
       if (image) {
-        requestOptions = postImage(payload);
+        // requestOptions = postImage(payload);
       } else {
-        requestOptions = post(payload, credentials);
+        // requestOptions = post(payload, credentials);
         localstore.addValue(endpoint, payload);
         value = payload;
       }
       break;
     case "DELETE":
-      requestOptions = deleteReq(credentials);
+      // requestOptions = deleteReq(credentials);
       localstore.deleteValue(endpoint, payload, type);
       value = payload;
       break;

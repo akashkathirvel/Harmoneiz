@@ -1,7 +1,7 @@
 {
-  "name": "todo",
+  "name": "Harmoneiz",
   "version": "0.3.0",
-  "homepage": "/todo/",
+  "homepage": "/harmoneiz/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
