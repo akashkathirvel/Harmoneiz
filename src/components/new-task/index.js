@@ -1,9 +1,9 @@
 import { useState } from "react";
 import s from "./index.module.css";
 import { taskActions } from "../../actions";
-import { generateRandomUid } from "../../utils";
 import { FaArrowRight, FaPlus } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { generateRandomUid, notify } from "../../utils";
 import { PRODUCT_CONSTANTS } from "../../constants/index";
 
 export function NewTask() {
@@ -25,7 +25,10 @@ export function NewTask() {
             dispatch(taskActions.add(payload));
             setTodoValue("");
         } else {
-            alert("Please Select List Type from the Left Panel before adding task.");
+            notify.open({
+                type: "error",
+                message: "Please Select List Type from the Left Panel before adding task."
+            });
         }
     }
 
