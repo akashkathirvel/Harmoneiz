@@ -18,8 +18,9 @@
   --font-color-text-dark: #C7C7C7;
   --font-color-text-light: #474747;
 
-  --shadow-medium: 0px 1px 1px #091E4240, 0px 0px 1px #091E424F;
   --shadow-large: 0 1px 6px rgba(32,33,36,.28);
+  --shadow-medium: 0px 1px 1px #091E4240, 0px 0px 1px #091E424F;
+  --shadow-medium-dark: 0px 0px 0px 1px #00000000, 0px 1px 1px #03040480, 0px 0px 1px #03040480;
 }
 
 .App {
@@ -31,16 +32,16 @@
 
 .App.light-theme{
   background-color: var(--bg-color-light);
-  transition: background-color 1000ms linear;
-  -ms-transition: background-color 1000ms linear;
-  -webkit-transition: background-color 1000ms linear;
+  transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  -webkit-transition: background-color 500ms linear;
 }
 
 .App.dark-theme{
   background-color: var(--bg-color-dark);
-  transition: background-color 1000ms linear;
-  -ms-transition: background-color 1000ms linear;
-  -webkit-transition: background-color 1000ms linear;
+  transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  -webkit-transition: background-color 500ms linear;
 }
 
 .App-logo {

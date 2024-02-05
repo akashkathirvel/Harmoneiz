@@ -57,6 +57,25 @@
     opacity: 0.6;
 }
 
+:global(.dark-theme) .addNewForm{
+    box-shadow: none;
+    background-color: #202124;
+    border: 1px solid #5f6368;
+    transition: background-color 1s;
+}
+
+:global(.dark-theme) .addNewInput,
+:global(.dark-theme) .addNewInput::placeholder {
+    color: #e8eaed;
+}
+
+:global(.dark-theme) .addNewForm:hover{
+    background-color: #303134;
+    transition: background-color 1s;
+    box-shadow: 0 1px 6px 0 #171717;
+    border-color: rgba(223,225,229,0);
+}
+
 @media (max-width: 768px) {
     .addNewForm {
         border-radius: calc(1px * var(--spacer));

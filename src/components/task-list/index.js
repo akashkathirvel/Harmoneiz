@@ -4,7 +4,6 @@ import { taskActions } from "../../actions";
 import s from "./index.module.css";
 import { useEffect } from "react";
 
-let d = [];
 export function TaskList() {
     const { root } = useSelector((s) => s.root);
     const { list } = useSelector((s) => s.task);
