@@ -42,7 +42,7 @@ function updateValue(key = "", value = {}, type = "list"){
     let data = null;
     if(type === "list"){
         data = getValue(key) || [];
-        data.push(value);
+        data = data.map((i) => i.id === value.id  ? value : i);
         setValue(key, data); 
     } else if(type === typeof {}) {
         data = Object.assign(getValue(key) || {}, value);

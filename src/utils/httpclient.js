@@ -99,7 +99,7 @@ function callApi(
   payload = {},
   credentials = true,
   image = false,
-  type = ""
+  type
 ) {
   let value = null;
   // let requestOptions = {};

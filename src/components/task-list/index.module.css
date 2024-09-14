@@ -61,10 +61,16 @@
 
 .taskList {
     overflow-y: scroll;
+    height: 100%;
 }
 
 .taskList::-webkit-scrollbar {
     display: none;
+}
+
+.activeDropBox {
+    border-radius: 4px;
+    border: 2px dotted var(--primary);
 }
 
 @media (max-width: 768px) {
