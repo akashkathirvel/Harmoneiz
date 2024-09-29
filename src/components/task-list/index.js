@@ -8,6 +8,7 @@ export function TaskList() {
     const [highlight, setHighlight] = useState('');
     const { root } = useSelector((s) => s.root);
     const { list } = useSelector((s) => s.task);
+    const [toEdit, setToEdit] = useState('');
     const dispatch = useDispatch();
 
 
@@ -17,18 +18,18 @@ export function TaskList() {
         }
     }, [root.listActiveType, dispatch]);
 
-    const drag = (ev, data, from) => {
-        ev.dataTransfer.setData("text", data.id, from);
+    const drag = (e, data, from) => {
+        e.dataTransfer.setData("text", data.id, from);
     }
 
-    const allowDrop = (ev, onBox) => {
-        ev.preventDefault();
+    const allowDrop = (e, onBox) => {
+        e.preventDefault();
         setHighlight(onBox);
     }
 
-    const drop = (ev, dropBox) => {
-        ev.preventDefault();
-        let data = ev.dataTransfer.getData("text");
+    const drop = (e, dropBox) => {
+        e.preventDefault();
+        let data = e.dataTransfer.getData("text");
         let d = list.find(i => i.id === data);
         if(d){
             d.status = dropBox;
@@ -40,6 +41,11 @@ export function TaskList() {
     const dragEnd = (e) => {
         e.preventDefault();
         setHighlight('');
+    }
+
+    const onEdit = (data) => {
+        console.log(data, "::data edit");
+        setToEdit(data);
     }
 
     const container = (status = "") => {
@@ -63,6 +69,7 @@ export function TaskList() {
                                 id={i.id}
                                 key={i.id}
                                 draggable="true"
+                                onClick={()=>onEdit(i)}
                                 onDragEnd={(e)=>dragEnd(e)}
                                 className={s.taskDataContainer}
                                 onDragStart={(e)=>drag(e, i, status)}

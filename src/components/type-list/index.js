@@ -13,7 +13,7 @@ export function TypeList() {
 
     useEffect(() => {
         dispatch(listTypeActions.get());
-    }, []);
+    }, [dispatch]);
 
     const onSubmit = (e) => {
         e.preventDefault();
