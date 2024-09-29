@@ -1,0 +1,101 @@
+.editPanel {
+    width: calc(var(--spacer) * 40px);
+    position: fixed;
+    z-index: 999;
+    height: 100%;
+    right: 0px;
+    top: 0px;
+}
+
+:global(.dark-theme) .editPanel {
+    background-color: #34363A;
+    color: var(--secondaryTextColor);
+}
+
+:global(.light-theme) .editPanel {
+    background-color: var(--primaryBackgroundColor);
+    color: var(--primaryTextColor);
+}
+
+.editArea {
+    padding: calc(var(--spacer) * 2px);
+}
+
+.editTitle {
+    display: flex;
+    padding-bottom: 16px;
+    justify-content: space-between;
+
+    & span {
+        font-size: 20px;
+    }
+}
+
+.closeIcon {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.editBody {
+    overflow: auto;
+    height: calc(100vh - (var(--spacer) * 16px));
+}
+
+.editFooter {
+    bottom: 16px;
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-around;
+    width: calc(var(--spacer) * 36px);
+    background-color: var(--primaryBackgroundColor);
+
+    & button {
+        margin: auto;
+    }
+}
+
+:global(.dark-theme) .editFooter {
+    background-color: transparent
+}
+
+:global(.light-theme) .label {
+    color: var(--font-color-text-light);
+}
+
+:global(.dark-theme) .label {
+    color: var(--font-color-text-dark);
+}
+
+.titleInput {
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    margin: 8px 0px 16px 0.5px;
+    box-shadow: var(--shadow-medium);
+    height: calc(var(--spacer) * 4px);
+    width: calc(100% - (var(--spacer) * 2.5px));
+}
+
+.selectInput {
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    margin: 8px 0px 16px 0.5px;
+    box-shadow: var(--shadow-medium);
+    height: calc(var(--spacer) * 5px);
+    width: calc(100% - (var(--spacer) * 0.5px));
+}
+
+.descriptionInput {
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    margin: 8px 0px 16px 0.5px;
+    box-shadow: var(--shadow-medium);
+    height: calc(var(--spacer) * 10px);
+    width: calc(100% - (var(--spacer) * 2.5px));
+}

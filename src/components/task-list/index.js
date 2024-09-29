@@ -2,7 +2,9 @@ import { PRODUCT_CONSTANTS } from "../../constants/index";
 import { useDispatch, useSelector } from "react-redux";
 import { taskActions } from "../../actions";
 import { useEffect, useState } from "react";
+import { FaTrash } from "react-icons/fa";
 import s from "./index.module.css";
+import { EditTask } from "../";
 
 export function TaskList() {
     const [highlight, setHighlight] = useState('');
@@ -44,8 +46,18 @@ export function TaskList() {
     }
 
     const onEdit = (data) => {
-        console.log(data, "::data edit");
         setToEdit(data);
+    }
+
+    const onDelete = (e, data) => {
+        e.preventDefault();
+        console.log(data, ":: data delete");
+    }
+
+    const onUpdate = (data) => {
+        dispatch(taskActions.update(data));
+        setToEdit('');
+        setTimeout(() => window.location.reload(), 0);
     }
 
     const container = (status = "") => {
@@ -75,6 +87,10 @@ export function TaskList() {
                                 onDragStart={(e)=>drag(e, i, status)}
                             >
                                 {i?.title || ''}
+                                <FaTrash 
+                                    className={s.listIcons}
+                                    onClick={(e) => onDelete(e, i)}
+                                />
                             </div>
                         ))
                     }
@@ -84,10 +100,20 @@ export function TaskList() {
     }
 
     return (
-        <div className={s.tasklistBoard}>
-            {container(PRODUCT_CONSTANTS.TO_DO)}
-            {container(PRODUCT_CONSTANTS.IN_PROGRESS)}
-            {container(PRODUCT_CONSTANTS.DONE)}
-        </div>
+        <>
+            <div className={s.tasklistBoard}>
+                {container(PRODUCT_CONSTANTS.TO_DO)}
+                {container(PRODUCT_CONSTANTS.IN_PROGRESS)}
+                {container(PRODUCT_CONSTANTS.DONE)}
+            </div>
+            {   
+                toEdit &&
+                <EditTask 
+                    data={toEdit} 
+                    onSave={onUpdate}
+                    onClose={()=>setToEdit('')}
+                />
+            }
+        </>
     );
 }

@@ -46,7 +46,6 @@ export function task(state = initialState, action) {
                 status: "ADD_REQUEST"
             }; 
         case taskConstants.ADD_SUCCESS:
-            console.log(state.list, action.res);
             return {
                 ...state,
                 list: [ ...(state.list), action.res ],
@@ -65,10 +64,7 @@ export function task(state = initialState, action) {
         case taskConstants.UPDATE_SUCCESS:
             return {
                 ...state,
-                list: state.list?.filter(i => {
-                    if(i.id === action.res?.id) return action.res;
-                    else return i;
-                }),
+                list: state.list?.filter(i => i.id === action.res?.id ? action.res : i),
                 status: "UPDATE_SUCCESS"
             }; 
         case taskConstants.UPDATE_ERROR:
