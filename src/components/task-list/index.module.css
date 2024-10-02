@@ -88,6 +88,24 @@
     opacity: 0.6;
 }
 
+.iconsArea {
+    display: flex;
+    flex-direction: row;
+}
+
+.low {
+    color: green;
+}
+.medium {
+    color: yellow;
+}
+.high {
+    color: red;
+}
+.very_high {
+    color: red;
+}
+
 @media (max-width: 768px) {
     .tasklistBoard {
         flex-direction: column;

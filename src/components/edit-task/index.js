@@ -1,4 +1,4 @@
-import { PRODUCT_CONSTANTS } from "../../constants/index";
+import { PRIORITY_CONSTANTS, PROGRESS_CONSTANTS } from "../../constants/index";
 import { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import s from "./index.module.css";
@@ -59,8 +59,18 @@ export function EditTask(props) {
                         value={onEdit.status || ''}
                         onChange={(e) => onChange("status", e.target.value)}
                     >
-                        {Object.keys(PRODUCT_CONSTANTS).map((i) => (
-                            <option value={PRODUCT_CONSTANTS[i]}>{PRODUCT_CONSTANTS[i]}</option>
+                        {Object.keys(PROGRESS_CONSTANTS).map((i) => (
+                            <option value={PROGRESS_CONSTANTS[i]}>{PROGRESS_CONSTANTS[i]}</option>
+                        ))}
+                    </select>
+                    <label className={s.label}>Priority</label>
+                    <select 
+                        className={s.selectInput}
+                        value={onEdit.priority || ''}
+                        onChange={(e) => onChange("priority", e.target.value)}
+                    >
+                        {Object.keys(PRIORITY_CONSTANTS).map((i) => (
+                            <option value={i}>{PRIORITY_CONSTANTS[i]}</option>
                         ))}
                     </select>
                 </div>

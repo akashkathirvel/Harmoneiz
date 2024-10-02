@@ -4,7 +4,7 @@ import { taskActions } from "../../actions";
 import { FaArrowRight, FaPlus } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { generateRandomUid, notify } from "../../utils";
-import { PRODUCT_CONSTANTS } from "../../constants/index";
+import { PROGRESS_CONSTANTS } from "../../constants/index";
 
 export function NewTask() {
     const { root } = useSelector((state) => state.root);
@@ -15,11 +15,12 @@ export function NewTask() {
         event.preventDefault();
         if(root.listActiveType){
             let payload = {
+                priority: "0",
                 description: "",
                 id: generateRandomUid(),
                 title: todoValue?.trim(),
                 typeId: root.listActiveType,
-                status: PRODUCT_CONSTANTS.TO_DO,
+                status: PROGRESS_CONSTANTS.TO_DO,
                 typeTitle: root.listActiveTypeTitle
             }
             dispatch(taskActions.add(payload));

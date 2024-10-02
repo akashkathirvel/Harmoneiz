@@ -1,10 +1,16 @@
-import { PRODUCT_CONSTANTS } from "../../constants/index";
+import { PROGRESS_CONSTANTS } from "../../constants/index";
 import { useDispatch, useSelector } from "react-redux";
 import { taskActions } from "../../actions";
 import { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import s from "./index.module.css";
 import { EditTask } from "../";
+import { 
+    MdKeyboardArrowUp, 
+    MdKeyboardArrowDown,
+    MdKeyboardDoubleArrowUp,
+    MdKeyboardDoubleArrowDown 
+} from "react-icons/md";
 
 export function TaskList() {
     const [highlight, setHighlight] = useState('');
@@ -87,10 +93,16 @@ export function TaskList() {
                                 onDragStart={(e)=>drag(e, i, status)}
                             >
                                 {i?.title || ''}
-                                <FaTrash 
-                                    className={s.listIcons}
-                                    onClick={(e) => onDelete(e, i)}
-                                />
+                                <div className={s.iconsArea}>
+                                    {/* <FaTrash 
+                                        className={s.listIcons}
+                                        onClick={(e) => onDelete(e, i)}
+                                    /> */}
+                                    {i.priority === "0" && <MdKeyboardDoubleArrowDown className={s.low}/>}
+                                    {i.priority === "1" && <MdKeyboardArrowDown className={s.medium}/>}
+                                    {i.priority === "2" && <MdKeyboardArrowUp className={s.high}/>}
+                                    {i.priority === "3" && <MdKeyboardDoubleArrowUp className={s.very_high}/>}
+                                </div>
                             </div>
                         ))
                     }
@@ -102,9 +114,9 @@ export function TaskList() {
     return (
         <>
             <div className={s.tasklistBoard}>
-                {container(PRODUCT_CONSTANTS.TO_DO)}
-                {container(PRODUCT_CONSTANTS.IN_PROGRESS)}
-                {container(PRODUCT_CONSTANTS.DONE)}
+                {container(PROGRESS_CONSTANTS.TO_DO)}
+                {container(PROGRESS_CONSTANTS.IN_PROGRESS)}
+                {container(PROGRESS_CONSTANTS.DONE)}
             </div>
             {   
                 toEdit &&
