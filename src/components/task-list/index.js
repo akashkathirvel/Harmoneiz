@@ -2,7 +2,7 @@ import { PROGRESS_CONSTANTS } from "../../constants/index";
 import { useDispatch, useSelector } from "react-redux";
 import { taskActions } from "../../actions";
 import { useEffect, useState } from "react";
-import { FaTrash } from "react-icons/fa";
+// import { FaTrash } from "react-icons/fa";
 import s from "./index.module.css";
 import { EditTask } from "../";
 import { 
@@ -55,10 +55,9 @@ export function TaskList() {
         setToEdit(data);
     }
 
-    const onDelete = (e, data) => {
-        e.preventDefault();
-        console.log(data, ":: data delete");
-    }
+    // const onDelete = (e, data) => {
+    //     e.preventDefault();
+    // }
 
     const onUpdate = (data) => {
         dispatch(taskActions.update(data));

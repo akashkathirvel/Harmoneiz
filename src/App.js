@@ -1,20 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useCallback, useEffect } from 'react';
 import { isDevelopmentSite } from './utils';
 import mixpanel from 'mixpanel-browser';
 import { rootActions } from './actions';
 import { CONSTANTS } from './constants';
 import { Dashboard } from './pages';
-import { useEffect } from 'react';
 import './App.css';
 
 function App() {
   const dispatch = useDispatch();
   const { root } = useSelector((state) => state.root);
 
+  const loadRootData = useCallback(() => {
+    dispatch(rootActions.get());
+  }, [dispatch]);
+
   useEffect(() => {
     loadMixPanel();
     loadRootData();
-  }, []);
+  }, [loadRootData]);
 
   const loadMixPanel = () => {
     if(!(isDevelopmentSite())){
@@ -26,10 +30,6 @@ function App() {
         }
       );
     }
-  }
-
-  const loadRootData = () => {
-    dispatch(rootActions.get());
   }
 
   return (
