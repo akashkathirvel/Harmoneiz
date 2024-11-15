@@ -4,6 +4,7 @@ import { rootActions } from "../../actions";
 import Logo from "../../assets/akLogo.png";
 import { FaBars } from "react-icons/fa";
 import { TypeList } from "../type-list";
+import pkg from "../../../package.json";
 import s from "./index.module.css";
 
 export function Menu() {
@@ -28,6 +29,7 @@ export function Menu() {
                 <img 
                     alt={"AK"}
                     src={Logo} 
+                    title={pkg.version}
                     onClick={toggleMenu}
                     className={s.akHeaderImage}
                 />

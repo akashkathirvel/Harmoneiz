@@ -34,7 +34,8 @@ export function TypeList() {
     const onClickListType = (id = "", title = "") => {
         let payload = {
             listActiveType: id,
-            listActiveTypeTitle: title
+            listActiveTypeTitle: title,
+            leftDrawer: !(window.innerWidth <= 768),
         }
         dispatch(rootActions.update( payload ));
     }

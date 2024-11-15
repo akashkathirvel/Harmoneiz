@@ -46,8 +46,8 @@ export function EditTask(props) {
                     <textarea 
                         type={"text"}
                         maxLength={300}
-                        multiline={true}
-                        aria-multiline={true}
+                        multiline={"true"}
+                        aria-multiline={"true"}
                         placeholder={"Description"}
                         className={s.descriptionInput}
                         value={onEdit.description || ''}
@@ -60,7 +60,9 @@ export function EditTask(props) {
                         onChange={(e) => onChange("status", e.target.value)}
                     >
                         {Object.keys(PROGRESS_CONSTANTS).map((i) => (
-                            <option value={PROGRESS_CONSTANTS[i]}>{PROGRESS_CONSTANTS[i]}</option>
+                            <option value={PROGRESS_CONSTANTS[i]} key={"PROGRESS_CONSTANTS_"+i}>
+                                {PROGRESS_CONSTANTS[i]}
+                            </option>
                         ))}
                     </select>
                     <label className={s.label}>Priority</label>
@@ -70,7 +72,9 @@ export function EditTask(props) {
                         onChange={(e) => onChange("priority", e.target.value)}
                     >
                         {Object.keys(PRIORITY_CONSTANTS).map((i) => (
-                            <option value={i}>{PRIORITY_CONSTANTS[i]}</option>
+                            <option value={i} key={"PRIORITY_CONSTANTS_"+i}>
+                                {PRIORITY_CONSTANTS[i]}
+                            </option>
                         ))}
                     </select>
                 </div>

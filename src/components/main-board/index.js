@@ -19,6 +19,7 @@ export function MainBoard(){
                 <div 
                     className={s.themeIcons} 
                     onClick={onThemeChange}
+                    title="THEME"
                 >
                     {
                         !(root?.theme) ?
