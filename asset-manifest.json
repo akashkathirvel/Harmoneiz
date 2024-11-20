@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/harmoneiz/static/css/main.1b1f9f06.css",
-    "main.js": "/harmoneiz/static/js/main.bd678ced.js",
+    "main.css": "/harmoneiz/static/css/main.9300b241.css",
+    "main.js": "/harmoneiz/static/js/main.27671e79.js",
     "static/js/453.4250adde.chunk.js": "/harmoneiz/static/js/453.4250adde.chunk.js",
     "static/media/akLogo.png": "/harmoneiz/static/media/akLogo.b1329ec087790f06f97a.png",
     "static/media/shapes-dark.png": "/harmoneiz/static/media/shapes-dark.deab39ef0a15804dcbd6.png",
     "static/media/shapes-light.png": "/harmoneiz/static/media/shapes-light.2ce136cf8da094de293d.png",
     "index.html": "/harmoneiz/index.html",
-    "main.1b1f9f06.css.map": "/harmoneiz/static/css/main.1b1f9f06.css.map",
-    "main.bd678ced.js.map": "/harmoneiz/static/js/main.bd678ced.js.map",
+    "main.9300b241.css.map": "/harmoneiz/static/css/main.9300b241.css.map",
+    "main.27671e79.js.map": "/harmoneiz/static/js/main.27671e79.js.map",
     "453.4250adde.chunk.js.map": "/harmoneiz/static/js/453.4250adde.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b1f9f06.css",
-    "static/js/main.bd678ced.js"
+    "static/css/main.9300b241.css",
+    "static/js/main.27671e79.js"
   ]
 }
