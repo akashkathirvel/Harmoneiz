@@ -1,8 +1,8 @@
 import s from "./index.module.css";
 import { useEffect, useState } from "react";
-import { generateRandomUid } from "../../utils";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
+import { generateRandomUid, notify } from "../../utils";
 import { listTypeActions, rootActions } from "../../actions";
 
 export function TypeList() {
@@ -17,13 +17,21 @@ export function TypeList() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if(listTitle?.trim()){
+        let value = listTitle?.trim();
+        let existing = list.find((i) => i.title == value);
+        if(value && !existing){
             let payload = {
                 id: generateRandomUid(),
                 title: listTitle?.trim()
             }
             dispatch(listTypeActions.add(payload));
+            onClickListType(payload.id, payload.title);
             setListTitle("");
+        } else if(existing) {
+            notify.open({ 
+                type: "error", 
+                message: "List Type already Exists."
+            });
         }
     }
 

@@ -70,34 +70,49 @@
 .titleInput {
     border: none;
     padding: 8px;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 400;
     border-radius: 4px;
+    letter-spacing: 0.5px;
     margin: 8px 0px 16px 0.5px;
     box-shadow: var(--shadow-medium);
     height: calc(var(--spacer) * 4px);
+    line-height: calc(2.5px* var(--spacer));
     width: calc(100% - (var(--spacer) * 2.5px));
 }
 
 .selectInput {
     border: none;
     padding: 8px;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 400;
     border-radius: 4px;
+    letter-spacing: 0.5px;
     margin: 8px 0px 16px 0.5px;
     box-shadow: var(--shadow-medium);
     height: calc(var(--spacer) * 5px);
+    line-height: calc(2.5px* var(--spacer));
     width: calc(100% - (var(--spacer) * 0.5px));
 }
 
 .descriptionInput {
     border: none;
     padding: 8px;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 400;
     border-radius: 4px;
+    letter-spacing: 0.5px;
     margin: 8px 0px 16px 0.5px;
     box-shadow: var(--shadow-medium);
     height: calc(var(--spacer) * 10px);
+    line-height: calc(2.5px* var(--spacer));
     width: calc(100% - (var(--spacer) * 2.5px));
+}
+
+.label {
+    font-weight: 500;
+    line-height: 20px;
+    font-size: calc(1.7px* var(--spacer));
 }
 
 @media (max-width: 768px) {

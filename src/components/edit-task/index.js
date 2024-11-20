@@ -1,10 +1,12 @@
 import { PRIORITY_CONSTANTS, PROGRESS_CONSTANTS } from "../../constants/index";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { MdClose } from "react-icons/md";
 import s from "./index.module.css";
 
 export function EditTask(props) {
     const [onEdit, setOnEdit] = useState({});
+    const { list } = useSelector((state) => state.listtype);
     const { 
         data, 
         onSave = () => null,
@@ -21,7 +23,14 @@ export function EditTask(props) {
     }
 
     const onSubmit = () => {
-        onSave(onEdit);
+        let payload = { ...onEdit };
+        if(payload.typeId !== data.typeId){
+            let l = list.find((i) => i.id === payload.typeId);
+            if(l && l.title){
+                payload["typeTitle"] = l?.title || '';
+            }
+        }
+        onSave(payload);
     }
 
     return (
@@ -74,6 +83,18 @@ export function EditTask(props) {
                         {Object.keys(PRIORITY_CONSTANTS).map((i) => (
                             <option value={i} key={"PRIORITY_CONSTANTS_"+i}>
                                 {PRIORITY_CONSTANTS[i]}
+                            </option>
+                        ))}
+                    </select>
+                    <label className={s.label}>List Type</label>
+                    <select 
+                        className={s.selectInput}
+                        value={onEdit.typeId || ''}
+                        onChange={(e) => onChange("typeId", e.target.value)}
+                    >
+                        {list.map((i) => (
+                            <option value={i.id} key={i.id}>
+                                {i.title}
                             </option>
                         ))}
                     </select>
