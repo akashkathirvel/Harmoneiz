@@ -136,6 +136,8 @@
 
 @media (max-width: 768px) {
     .tasklistBoard {
+        overflow-y: auto;
+        padding-bottom: 64px;
         flex-direction: column;
         margin: calc(1px * var(--spacer)) 0px 0px;
     }
