@@ -1,7 +1,7 @@
 import { PROGRESS_CONSTANTS } from "../../constants/index";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { taskActions } from "../../actions";
-import { useEffect, useState } from "react";
 // import { FaTrash } from "react-icons/fa";
 import s from "./index.module.css";
 import { EditTask } from "../";
@@ -13,11 +13,13 @@ import {
 } from "react-icons/md";
 
 export function TaskList() {
+    const [tasksState, setTasksState] = useState({});
     const [highlight, setHighlight] = useState('');
     const { root } = useSelector((s) => s.root);
     const { list } = useSelector((s) => s.task);
     const [toEdit, setToEdit] = useState('');
     const dispatch = useDispatch();
+    let timeout = null;
 
 
     useEffect(() => {
@@ -25,6 +27,26 @@ export function TaskList() {
             dispatch(taskActions.getAll(root.listActiveType));
         }
     }, [root.listActiveType, dispatch]);
+
+    useEffect(() => {
+        resetTasksState(true);
+
+        window.addEventListener("resize", function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(resetTasksState, 100);
+        });
+        return () => resetTasksState();
+    }, []);
+
+    const resetTasksState = useCallback((force) => {
+        if(force || window.innerWidth > 768){
+            let defaultTasksState = {};
+            Object.keys(PROGRESS_CONSTANTS).forEach((i) => {
+                defaultTasksState[PROGRESS_CONSTANTS[i]] = true;
+            })
+            setTasksState({...defaultTasksState});
+        }
+    }, []);
 
     const drag = (e, data, from) => {
         e.dataTransfer.setData("text", data.id, from);
@@ -65,6 +87,10 @@ export function TaskList() {
         setTimeout(() => window.location.reload(), 0);
     }
 
+    const toggleState = (status = '', state = '') => {
+        setTasksState((prev) => ({ ...prev, [status]: !state }));
+    }
+
     const container = (status = "") => {
         const data = list.filter(
             i => i.status === status
@@ -74,13 +100,30 @@ export function TaskList() {
             <div className={`${s.taskListContainer} ${highlight === status ? s.activeDropBox : ''}`}>
                 <h6 className={s.taskStatusTitle}>
                     {status}
+                    {
+                        tasksState[status] && 
+                        <MdKeyboardArrowUp 
+                            className={s.openCloseArrow} 
+                            onClick={() => toggleState(status, tasksState[status])}
+                        />
+                    }
+                    {
+                        !tasksState[status] && 
+                        <MdKeyboardArrowDown 
+                            className={s.openCloseArrow} 
+                            onClick={() => toggleState(status, tasksState[status])}
+                        />
+                    }
                 </h6>
+            { 
+                tasksState[status] &&
                 <div 
                     className={s.taskList}
                     onDrop={(e)=>drop(e, status)}
                     onDragOver={(e)=>allowDrop(e, status)}
                 >
                     {
+                        data.length > 0 ?
                         data.map((i) => (
                             <div 
                                 id={i.id}
@@ -103,9 +146,11 @@ export function TaskList() {
                                     {i.priority === "3" && <MdKeyboardDoubleArrowUp className={s.very_high}/>}
                                 </div>
                             </div>
-                        ))
+                        )) : 
+                        <p className={s.noTaskTitle}>No Tasks</p>
                     }
                 </div>
+            }
             </div>
         )
     }
