@@ -99,7 +99,7 @@ export function TaskList() {
         return (
             <div className={`${s.taskListContainer} ${highlight === status ? s.activeDropBox : ''}`}>
                 <h6 className={s.taskStatusTitle}>
-                    {status}
+                    {status + ` (${data?.length || 0})`}
                     {
                         tasksState[status] && 
                         <MdKeyboardArrowUp 

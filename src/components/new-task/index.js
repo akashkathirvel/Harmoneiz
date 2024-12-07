@@ -13,19 +13,20 @@ export function NewTask() {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        if(root.listActiveType){
+        let value = todoValue?.trim();
+        if(root.listActiveType && value){
             let payload = {
+                title: value,
                 priority: "0",
                 description: "",
                 id: generateRandomUid(),
-                title: todoValue?.trim(),
                 typeId: root.listActiveType,
                 status: PROGRESS_CONSTANTS.TO_DO,
                 typeTitle: root.listActiveTypeTitle
             }
             dispatch(taskActions.add(payload));
             setTodoValue("");
-        } else {
+        } else if(!(root.listActiveType)){
             notify.open({
                 type: "error",
                 message: "Please Select List Type from the Left Panel before adding task."
@@ -55,7 +56,7 @@ export function NewTask() {
             <button type="submit" className={s.addBtn}>
                 Add
             </button>
-            <FaArrowRight className={s.mobileAddBtn}/>
+            <FaArrowRight className={s.mobileAddBtn} onClick={onSubmit}/>
         </form>
     )
 }
