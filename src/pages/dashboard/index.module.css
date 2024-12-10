@@ -3,3 +3,35 @@
     height: 100%;
     width: 100%;
 }
+
+.lockBoard {
+    top: 0%;
+    right: 0%;
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lockPanel {
+    width: calc(70px *var(--spacer));
+}
+
+:global(.dark-theme) .lockPinPanel {
+    background-color: #34363A;
+    color: var(--secondaryTextColor);
+    box-shadow: 0 1px 6px 0 #171717;
+}
+
+:global(.light-theme) .lockPinPanel {
+    box-shadow: var(--shadow-large);
+    color: var(--primaryTextColor);
+    background-color: #EDF2FA;
+}
+
+@media (max-width: 768px) {
+    .lockPanel {
+        padding: calc(1px *var(--spacer));
+    }
+}
