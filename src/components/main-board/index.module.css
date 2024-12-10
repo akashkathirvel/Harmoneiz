@@ -32,11 +32,20 @@
     padding: calc(1px *var(--global-padding));
 }
 
+.lockIcon,
 .themeIcon {
     font-size: 24px;
     color: var(--primary);
 }
 
+.lockIcons {
+    cursor: pointer;
+    position: absolute;
+    right: calc(5px *var(--global-padding));
+    padding: calc(1px *var(--global-padding));
+}
+
+.lockIcons:active,
 .themeIcons:active {
     opacity: 0.6;
 }
@@ -49,6 +58,29 @@
     color: var(--font-color-h1-light);
     left: calc(1px *var(--global-padding));
     padding: calc(1px *var(--global-padding));
+}
+
+.lockPinPanel {
+    top: 10vh;
+    z-index: 999;
+    position: fixed;
+    width: calc(70px *var(--spacer));
+    padding: calc(5px *var(--spacer));
+    border-radius: calc(1px *var(--spacer));
+    height: calc(80vh - (10px *var(--spacer)));
+    right: calc((100vw - (80px *var(--spacer)))/2);
+}
+
+:global(.dark-theme) .lockPinPanel {
+    background-color: #34363A;
+    color: var(--secondaryTextColor);
+    box-shadow: 0 1px 6px 0 #171717;
+}
+
+:global(.light-theme) .lockPinPanel {
+    box-shadow: var(--shadow-large);
+    color: var(--primaryTextColor);
+    background-color: #EDF2FA;
 }
 
 :global(.dark-theme) .activeType {
@@ -75,5 +107,16 @@
     .themeIcons {
         top: calc(1px *var(--spacer));
         right: calc(1px *var(--spacer));
+    }
+    .lockIcons {
+        top: calc(1px *var(--spacer));
+        right: calc(7px *var(--spacer));
+    }
+    .lockPinPanel {
+        padding: calc(1px *var(--spacer));
+        height: 100%;
+        width: 100%;
+        right: 0%;
+        top: 0%;
     }
 }
