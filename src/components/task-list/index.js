@@ -1,5 +1,5 @@
 import { PROGRESS_CONSTANTS } from "../../constants/index";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { taskActions } from "../../actions";
 // import { FaTrash } from "react-icons/fa";
@@ -19,7 +19,7 @@ export function TaskList() {
     const { list } = useSelector((s) => s.task);
     const [toEdit, setToEdit] = useState('');
     const dispatch = useDispatch();
-    let timeout = null;
+    const timeout = useRef(null);
 
 
     useEffect(() => {
@@ -32,8 +32,8 @@ export function TaskList() {
         resetTasksState(true);
 
         window.addEventListener("resize", function() {
-            clearTimeout(timeout);
-            timeout = setTimeout(resetTasksState, 100);
+            clearTimeout(timeout.current);
+            timeout.current = setTimeout(resetTasksState, 100);
         });
         return () => resetTasksState();
     }, []);
