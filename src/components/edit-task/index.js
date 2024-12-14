@@ -22,10 +22,11 @@ export function EditTask(props) {
         setOnEdit((prev) => ({ ...prev, [key]: value }));
     }
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
+        e.preventDefault();
         let payload = { ...onEdit };
         if(payload.typeId !== data.typeId){
-            let l = list.find((i) => i.id === payload.typeId);
+            let l = (list || []).find((i) => i.id === payload.typeId);
             if(l && l.title){
                 payload["typeTitle"] = l?.title || '';
             }
@@ -40,7 +41,7 @@ export function EditTask(props) {
                     <span>Edit</span>
                     <MdClose onClick={() => onClose()} className={s.closeIcon}/>
                 </div>
-                <div className={s.editBody}>
+                <form onSubmit={onSubmit} className={s.editBody}>
                     <label className={s.label}>Title</label>
                     <input 
                         type={"text"}
@@ -98,11 +99,11 @@ export function EditTask(props) {
                             </option>
                         ))}
                     </select>
-                </div>
-                <div className={s.editFooter}>
-                    <button onClick={()=> setOnEdit(data)}>Reset</button>
-                    <button onClick={()=> onSubmit()}>Confirm</button>
-                </div>
+                    <div className={s.editFooter}>
+                        <button type={"reset"} onClick={()=> setOnEdit(data)}>Reset</button>
+                        <button type={"submit"}>Confirm</button>
+                    </div>
+                </form>
             </div>
         </div>
     );

@@ -18,7 +18,7 @@ export function TypeList() {
     const onSubmit = (e) => {
         e.preventDefault();
         let value = listTitle?.trim();
-        let existing = list.find((i) => i.title === value);
+        let existing = (list || []).find((i) => i.title === value);
         if(value && !existing){
             let payload = {
                 id: generateRandomUid(),

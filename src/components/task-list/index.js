@@ -60,7 +60,7 @@ export function TaskList() {
     const drop = (e, dropBox) => {
         e.preventDefault();
         let data = e.dataTransfer.getData("text");
-        let d = list.find(i => i.id === data);
+        let d = (list || []).find(i => i.id === data);
         if(d){
             d.status = dropBox;
             dispatch(taskActions.update(d));
