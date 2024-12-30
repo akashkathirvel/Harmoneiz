@@ -62,7 +62,8 @@ export function PinPanel(props) {
                         className={`${s.inputs} ${(err || error) ? s.error : ''}`} 
                         key={"input_"+i}
                     >
-                        {pin[i] || ''}
+                        {showClose && pin[i] ? (pin[i] || '') : ''}
+                        {!showClose && pin[i] ? '*' : ''}
                     </div>
                 ))}
             </div>
